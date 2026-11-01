@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+        name="description"
+        content="ShopMart - discover products, search the catalogue, and save your favourites."
+    >
+    <title>ShopMart | Products</title>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <header class="site-header">
+        <a class="brand" href="index.html" aria-label="ShopMart home">
+            <span class="brand__icon" aria-hidden="true">♧</span>
+            <span>ShopMart</span>
+        </a>
+
+        <nav class="main-navigation" aria-label="Main navigation">
+            <a class="main-navigation__link main-navigation__link--active" href="#products">
+                Products
+            </a>
+            <a class="main-navigation__link" href="#contact">
+                Contact
+            </a>
+        </nav>
+
+        <button
+            class="favorites-button"
+            id="favorites-toggle"
+            type="button"
+            aria-pressed="false"
+        >
+            <span aria-hidden="true">♡</span>
+            Favorites
+            <span class="favorites-button__count" id="favorite-count">0</span>
+        </button>
+    </header>
+
+    <main class="page-container">
+        <section class="hero" aria-labelledby="hero-title">
+            <p class="eyebrow">DISCOVER YOUR NEXT FAVOURITE</p>
+            <h1 id="hero-title">Find products you'll love.</h1>
+            <p class="hero__description">
+                Explore our collection, find what you need, and save your favourite products.
+            </p>
+        </section>
+
+        <section class="filters" aria-label="Product search and filters">
+            <div class="form-field form-field--search">
+                <label for="search-input">Search products</label>
+                <input
+                    id="search-input"
+                    name="search"
+                    type="search"
+                    placeholder="Search by product name or description..."
+                    autocomplete="off"
+                >
+            </div>
+
+            <div class="form-field form-field--category">
+                <label for="category-filter">Filter by category</label>
+                <select id="category-filter" name="category">
+                    <option value="all">All categories</option>
+                </select>
+            </div>
+
+            <button class="button button--secondary" id="clear-filters" type="button">
+                Clear filters
+            </button>
+        </section>
+
+        <section class="products-section" id="products" aria-labelledby="products-title">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">SHOP THE COLLECTION</p>
+                    <h2 id="products-title">Popular products</h2>
+                </div>
+
+                <p class="section-heading__count" id="result-count" aria-live="polite"></p>
+            </div>
+
+            <div
+                class="status-message"
+                id="status-message"
+                role="status"
+                aria-live="polite"
+            >
+                Loading products...
+            </div>
+
+            <div class="product-grid" id="product-grid"></div>
+
+            <button
+                class="button button--primary is-hidden"
+                id="retry-button"
+                type="button"
+            >
+                Try again
+            </button>
+        </section>
+
+        <section class="contact-section" id="contact" aria-labelledby="contact-title">
+            <div class="contact-section__intro">
+                <p class="eyebrow">NEED A HAND?</p>
+                <h2 id="contact-title">Contact ShopMart</h2>
+                <p>Have a question? Send us a message.</p>
+            </div>
+
+            <form class="contact-form" id="contact-form" novalidate>
+                <div class="form-field">
+                    <label for="customer-name">Your name</label>
+                    <input
+                        id="customer-name"
+                        name="name"
+                        type="text"
+                        autocomplete="name"
+                        required
+                    >
+                    <small class="form-error" id="name-error"></small>
+                </div>
+
+                <div class="form-field">
+                    <label for="customer-email">Email address</label>
+                    <input
+                        id="customer-email"
+                        name="email"
+                        type="email"
+                        autocomplete="email"
+                        required
+                    >
+                    <small class="form-error" id="email-error"></small>
+                </div>
+
+                <div class="form-field">
+                    <label for="customer-message">Message</label>
+                    <textarea
+                        id="customer-message"
+                        name="message"
+                        rows="4"
+                        required
+                    ></textarea>
+                    <small class="form-error" id="message-error"></small>
+                </div>
+
+                <p class="form-feedback" id="form-feedback" role="status" aria-live="polite"></p>
+
+                <button class="button button--primary" type="submit">
+                    Send message
+                </button>
+            </form>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2026 ShopMart. All rights reserved.</p>
+        <p>Built with HTML, CSS and vanilla JavaScript.</p>
+    </footer>
+</body>
+</html>
